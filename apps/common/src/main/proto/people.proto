@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.lucas.grpc";
+option java_outer_classname = "PeopleProto";
+
+package demo;
+
+service ProtoService {
+  rpc GetPeople (Empty) returns (People) {}
+}
+
+message Empty {}
+
+message People {
+  repeated Person person = 1;
+}
+
+message Person {
+  string name = 1;
+  repeated Address address = 2;
+  repeated string mobile = 3;
+  repeated string email = 4;
+}
+
+message Address {
+  string street = 1;
+  int32 number = 2;
+}
